@@ -1,0 +1,33 @@
+---
+---
+
+@import "moonwalk";
+@import "list";
+@import "syntax";
+
+body {
+    counter-reset: figure-counter; // Initialize the counter at the beginning of the body or container element
+}
+
+figure {
+    display: flex;
+    flex-direction: column; // Stack children vertically
+    align-items: center; // Center children horizontally
+    text-align: center; // Center text for all child elements, including <figcaption>
+    counter-increment: figure-counter; // Increment the counter for each figure
+  
+    img {
+      // Style for the image if needed
+      max-width: 100%; // Make sure the image is responsive and doesn't overflow the figure element
+      height: auto; // Maintain aspect ratio
+      border-radius: .3rem; // Assuming you want a round image based on the "round-img" class
+    }
+  
+    figcaption {
+      margin-top: 1rem; // Add some space between the image and the caption
+      
+      &::before {
+        content: "Fig " counter(figure-counter) ". "; // Display the counter before the figcaption content
+      }
+    }
+}
