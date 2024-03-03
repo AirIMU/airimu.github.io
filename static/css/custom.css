@@ -1,0 +1,16 @@
+body {
+    counter-reset: figure-counter;
+}
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    counter-increment: figure-counter;
+}
+figure figcaption::before {
+    content: "Fig " counter(figure-counter) ". ";
+}
+figure figcaption {
+    color: gray;
+}

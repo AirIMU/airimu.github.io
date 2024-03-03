@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel = "icon" href = "assets/title_image.png" type = "image/x-icon">
+  <link rel=​"icon" type=​"image/​png" sizes=​"32x32" href=​"./static/images/​favicon-32x32.png">
+  <link rel=​"shortcut icon" type=​"image/​ico" href=​"./static/images/​favicon.ico">
+  <link rel=​"apple-touch-icon" sizes=​"180x180" href=​"./static/images/​apple-touch-icon.png">​​​
         
   <meta charset="utf-8">
   <meta name="description"
         content="AirIMU: Learning Uncertainty Propagation for Inertial Odometry">
-  <meta name="keywords" content="AnyLoc,FoundVLAD, Foundation Models, Visual Place Recognition, VPR, DINOv2, DINO, SAM">
+  <meta name="keywords" content="AirIMU, IMU, Pose Graph Optimization, Covariance, Deep Learning">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:image" content="assets/Thumbnail.png" />        
   <title>AirIMU: Learning Uncertainty Propagation for Inertial Odometry</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-        rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="./static/css/custom.css">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="./static/js/fontawesome.all.min.js"></script>
-  <script src="./static/js/bulma-carousel.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+  <!-- <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script>
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./static/js/index.js"></script> -->
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
 
+
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
 </head>
 <body>
 
@@ -62,7 +74,7 @@
           <div class="is-size-6 publication-authors">
             <span class="author-block"><sup>1</sup>Robotics Institute, Carnegie Mellon University</a>,
               <sup>2</sup>Spatial AI &amp; Robotics Lab, University at Buffalo</a>,
-              <sup>3</sup>OPPO US Research Center</a>,
+              <sup>3</sup>OPPO US Research Center</a>
           </div>
 
           <div class="column has-text-centered">
@@ -106,26 +118,6 @@
                   <span>Code</span>
                   </a>
               </span>
-              <!-- Demo Link. -->
-              <!-- <span class="link-block">
-                <a href="#interactive_demo"
-                   class="external-link button is-normal">
-                  <span class="icon">
-                      <i class="fa fa-basketball-ball"></i>
-                  </span>
-                  <span>Demo</span>
-                  </a>
-              </span> -->
-              <!-- Hugging Face Demo Link. -->
-              <!-- <span class="link-block">
-                <a href="https://huggingface.co/spaces/TheProjectsGuy/AnyLoc"
-                   class="external-link button is-normal">
-                  <span class="icon">
-                      <i class="fa fa-face-smiling-hands"></i>
-                  </span>
-                  <span>HF Demo</span>
-                  </a>
-              </span> -->
           </div>
         </div>
       </div>
@@ -133,24 +125,23 @@
   </div>
 </section>
 
-<!-- <section class="hero teaser">
+<section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-        <video id="dinov2_gardens" autoplay controls muted loop playsinline height="100%">
-          <source src="./data/method_viz/splash_vid_compressed.mp4"
-                  type="video/mp4">
+        <video autoplay controls muted loop playsinline height="100%">
+          <!-- <source src="./data/method_viz/splash_vid_compressed.mp4"
+                  type="video/mp4"> -->
         </video>
       <h2 class="subtitle has-text-centered">
-        <span class="coolname">AirIMU</span> enables <span>universal visual place recognition (VPR) <i>anywhere</i>, <i>anytime</i> and under <i>anyview</i>.</span> 
+        <mark>TODO: Some fancy caption for fancy video here</mark>
       </h2>
     </div>
   </div>
-</section> -->
+</section>
 
 <section class="hero is-small is-light">
   <div class="hero-body">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Abstract</h2>
@@ -168,6 +159,79 @@
           </p>
         </div>
       </div>
+    </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title is-3">Method</h2>
+        <figure>
+          <img src="./static/images/Figure1.svg" width="100%"/>
+          <figcaption class="content has-text-justified">
+            <b>Left</b>: Traditional methods with empirically-set uncertainty parameters often fail to capture noise accurately.
+            <b>Middle</b>: AirIMU not only denoises the IMU data but also predicts the corresponding uncertainty of the integration. Notably, its covariance propagation is differentiable, promoting efficient training.
+            <b>Right</b>: Learning-based algorithms can predict velocity and covariance, but their predictions lack interpretability and generality across different data domains.
+          </figcaption> 
+        </figure>
+
+        <br/>
+
+
+        <figure>
+          <img src="./static/images/Figure2.png" width="50%"/>
+          <figcaption class="content has-text-justified">
+            <b>Right</b>: We employ CNN-GRU encoder to capture IMU features $f$ from raw IMU accelerometer $a_k$ and gyroscope $w_k$.
+            Subsequently, these features are decoded to obtain IMU corrections ($\sigma_{acc}$, $\sigma_{gyro}$).
+            <b>Left</b>: We add the raw data with corrections, generating corrected IMU measurements ($\hat a_k$ and $\hat w_k$). The learned uncertainties $\eta$ are propagated to estimate the corresponding covariance matrix $\Sigma$.
+          </figcaption>
+        </figure>
+
+        <br/>
+
+        <figure>
+          <img src="./static/images/FigurePGO.drawio.svg" width="50%"/>
+          <figcaption class="content has-text-justified">
+            Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+    </div>
+    </div>
+</section>
+
+<section class="hero is-small">
+  <div class="hero-body">
+  <div class="container is-max-desktop">
+    <div class="columns">
+      <div class="column">
+        <h2 class="title is-3">Results</h2>
+        Results show that AirIMU can effectively reduce the error comparing to direct integration and existing calibration methods like Kalibr. The method is generalizable and shows effectiveness on IMUs ranging from automotive grade ($\sim$ \$3) to navigation grade (> \$50000).
+
+        <figure>
+          <img src="./static/images/imus.svg" width="50%"/>
+          <figcaption class="content has-text-justified">
+            We present the comparison across five datasets' sensors in terms of IMU's price (Unit: \$) and navigation performance categories. Navigation performance is evaluated based on the gyroscope’s in-run bias stability metric (Unit:$^{\circ}$/hr).
+          </figcaption>
+        </figure>
+
+        <br/>
+
+        <h3 class="title is-4">EuRoC Dataset</h3>
+
+        <h3 class="title is-4">KITTI Dataset</h3>
+
+        <h3 class="title is-4">IMU-Centric Graph Optimization</h3>
+
+        <h3 class="title is-4">Subt-MRS Dataset</h3>
+
+        
+      </div>
+    </div>
     </div>
     </div>
 </section>
