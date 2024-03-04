@@ -79,43 +79,17 @@
 
           <div class="column has-text-centered">
             <div class="publication-links">
-              <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="assets/AnyLoc.pdf"
-                   class="external-link button is-normal ">
-                  <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span> -->
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2310.04874"
                    class="external-link button is-normal">
-                  <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
+                  <span>arXiv Page</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <!-- <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=ITo8rMInatk&feature=youtu.be"
-                   class="external-link button is-normal">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span> -->
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/haleqiu/AirIMU"
                    class="external-link button is-normal ">
-                  <span class="icon">
-                      <i class="fab fa-github"></i>
-                  </span>
-                  <span>Code</span>
+                  <span>GitHub Code</span>
                   </a>
               </span>
           </div>
@@ -178,24 +152,12 @@
           </figcaption> 
         </figure>
 
-        <br/>
-
-
         <figure>
           <img src="./static/images/Figure2.png" width="50%"/>
           <figcaption class="content has-text-justified">
             <b>Right</b>: We employ CNN-GRU encoder to capture IMU features $f$ from raw IMU accelerometer $a_k$ and gyroscope $w_k$.
             Subsequently, these features are decoded to obtain IMU corrections ($\sigma_{acc}$, $\sigma_{gyro}$).
             <b>Left</b>: We add the raw data with corrections, generating corrected IMU measurements ($\hat a_k$ and $\hat w_k$). The learned uncertainties $\eta$ are propagated to estimate the corresponding covariance matrix $\Sigma$.
-          </figcaption>
-        </figure>
-
-        <br/>
-
-        <figure>
-          <img src="./static/images/FigurePGO.drawio.svg" width="50%"/>
-          <figcaption class="content has-text-justified">
-            Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
           </figcaption>
         </figure>
       </div>
@@ -219,15 +181,36 @@
           </figcaption>
         </figure>
 
-        <br/>
-
-        <h3 class="title is-4">EuRoC Dataset</h3>
-
-        <h3 class="title is-4">KITTI Dataset</h3>
-
         <h3 class="title is-4">IMU-Centric Graph Optimization</h3>
 
-        <h3 class="title is-4">Subt-MRS Dataset</h3>
+        <div class="columns">
+          <div class="column is-one-third">
+            <p>The uncertainty model of the IMU pre-integration is pivotal when fusing the IMU measurements with other sensors, such as the GPS and camera. To assess the effectiveness of our learned uncertainty proposed in the AirIMU model, we conducted an ablation study using the PGO on EuRoC dataset.
+              We utilize the GPS-PGO system we formulated in figure below, where GPS was considered as an unary constraint to the factor.</p>
+          </div>
+          <div class="column is-two-thirds">
+            <figure>
+              <img src="./static/images/FigurePGO.drawio.svg" width="75%"/>
+              <figcaption class="content has-text-justified">
+                Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
+              </figcaption>
+            </figure>
+          </div>
+          
+        </div>
+        
+        <figure>
+          <img src="./static/images/IMUGPS-qualitative-result.png" width="100%"/>
+          <figcaption class="content has-text-justified">
+            Qualitative analysis of the IMU-centric GPS PGO results. In this experiment, the GPS frequency is set to 0.1 Hz. Despite using identical IMU measurements, AirIMU with a learned covariance yields the optimal fusion results.
+          </figcaption>
+        </figure>
+
+        <h3 class="title is-4">EuRoC</h3>
+
+        <h3 class="title is-4">KITTI</h3>
+
+        <h3 class="title is-4">Subt-MRS</h3>
 
         
       </div>

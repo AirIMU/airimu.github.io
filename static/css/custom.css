@@ -7,6 +7,7 @@ figure {
     align-items: center;
     text-align: center;
     counter-increment: figure-counter;
+    margin-bottom: 1rem !important;
 }
 figure figcaption::before {
     content: "Fig " counter(figure-counter) ". ";
