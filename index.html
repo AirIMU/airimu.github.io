@@ -200,8 +200,42 @@
         </figure>
 
         <h3 class="title is-4">EuRoC</h3>
+        
+            <figure>
+              <div class="columns">
+                <div class="column is-half">
+                  <img src="./static/images/Euroc_rmse.png" width="100%"/>
+                </div>
+                <div class="column is-half">
+                  <img src="./static/images/Euroc_gyro.png" width="100%"/>
+                </div>
+              </div>
+              <figcaption class="content has-text-justified">
+                <b>Left</b>: IMU integration result of 10 frames on EuRoC Dataset with P-RMSE (Unit: $\mathrm{cm}$) and R-RMSE (Unit: $\deg$)
+                
+                <b>Right</b>: Gyroscope integration on EuRoC Dataset, we show the R-RMSE and the ROE (Unit: $\deg$).
+              </figcaption>
+            </figure>
 
         <h3 class="title is-4">KITTI</h3>
+
+          <figure>
+            <div class="columns">
+              <div class="column is-half">
+                <img src="./static/images/KITTI-Table.png" width="100%"/>
+              </div>
+              <div class="column is-half">
+                <img src="./static/images/KITTI-Trajectory.png" width="100%"/>
+              </div>
+            </div>
+            <figcaption class="content has-text-justified">
+              <b>Left</b>: The ROE (Unit: $\deg$) and RTE (Unit: $\mathrm{m}$) of IMU integration over 1 second (10 frames) on test dataset. RoNIN refers to the RoNIN ResNet-50 model specifically.
+              <br/><br/>
+              <b>Right</b>: Trajectory 0022 in KITTI-Raw dataset estimated by <i style="color:deeppink">RoNIN</i>, <i style="color:orange">Baseline</i> and <i style="color:red">AirIMU</i>. 
+              The graph bellowed shows the accumulated velocity error (Unit: $\mathrm{m/s}$) through the entire trajectory. The AirIMU significantly alleviate the velocity error accumulation on y-axis significantly comparing to the Baseline model.
+              As a result, the AirIMU maintains its accuracy after integration, while the Baseline method exhibits noticeable drift during the third turning.
+            </figcaption>
+          </figure>
 
         <h3 class="title is-4">Subt-MRS</h3>
 
