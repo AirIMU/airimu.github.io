@@ -183,21 +183,14 @@
 
         <h3 class="title is-4">IMU-Centric Graph Optimization</h3>
 
-        <div class="columns">
-          <div class="column is-one-third">
-            <p>The uncertainty model of the IMU pre-integration is pivotal when fusing the IMU measurements with other sensors, such as the GPS and camera. To assess the effectiveness of our learned uncertainty proposed in the AirIMU model, we conducted an ablation study using the PGO on EuRoC dataset.
-              We utilize the GPS-PGO system we formulated in figure below, where GPS was considered as an unary constraint to the factor.</p>
-          </div>
-          <div class="column is-two-thirds">
-            <figure>
-              <img src="./static/images/FigurePGO.drawio.svg" width="75%"/>
-              <figcaption class="content has-text-justified">
-                Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
-              </figcaption>
-            </figure>
-          </div>
-          
-        </div>
+          <p>The uncertainty model of the IMU pre-integration is pivotal when fusing the IMU measurements with other sensors, such as the GPS and camera. To assess the effectiveness of our learned uncertainty proposed in the AirIMU model, we conducted an ablation study using the PGO on EuRoC dataset.
+            We utilize the GPS-PGO system we formulated in figure below, where GPS was considered as an unary constraint to the factor.</p>
+          <figure>
+            <img src="./static/images/FigurePGO.drawio.svg" width="50%"/>
+            <figcaption class="content has-text-justified">
+              Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
+            </figcaption>
+          </figure>
         
         <figure>
           <img src="./static/images/IMUGPS-qualitative-result.png" width="100%"/>
