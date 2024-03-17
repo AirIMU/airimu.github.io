@@ -103,12 +103,8 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
         <video autoplay controls muted loop playsinline height="100%">
-          <!-- <source src="./data/method_viz/splash_vid_compressed.mp4"
-                  type="video/mp4"> -->
+          <source src="/static/images/AirIMU_20M.mp4" type="video/mp4">
         </video>
-      <h2 class="subtitle has-text-centered">
-        <mark>TODO: Some fancy caption for fancy video here</mark>
-      </h2>
     </div>
   </div>
 </section>
@@ -239,6 +235,12 @@
 
         <h3 class="title is-4">Subt-MRS</h3>
 
+          <figure>
+            <img src="./static/images/Subtmrs.png" width="100%"/>
+            <figcaption class="content has-text-justified">
+              In the qualitative analysis of Subt-MRS dataset, we select the sequence <code>factory 9</code> from UGV2 in the Urban Challenge. This sequence captures the robot navigating over an obstacle and subsequently remains stationary for a period. During the stationary period (highlighted with a black box), applying the <b>Average Bias</b> correction actually degrades the integration performance compared to using raw data. This is because the stationary period of testing sequence exhibits a different bias compared to the averaged bias derived from the calibration sequences, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period.
+            </figcaption>
+          </figure>
         
       </div>
     </div>
