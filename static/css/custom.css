@@ -13,5 +13,6 @@ figure figcaption::before {
     content: "Fig " counter(figure-counter) ". ";
 }
 figure figcaption {
-    color: gray;
+    color: black;
+    text-align: center !important;
 }

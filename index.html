@@ -82,7 +82,7 @@
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2310.04874"
                    class="external-link button is-normal">
-                  <span>arXiv Page</span>
+                  <span>arXiv Paper</span>
                 </a>
               </span>
               <!-- Code Link. -->
@@ -141,7 +141,7 @@
         <h2 class="title is-3">Method</h2>
         <figure>
           <img src="./static/images/Figure1.svg" width="100%"/>
-          <figcaption class="content has-text-justified">
+          <figcaption class="content">
             <b>Left</b>: Traditional methods with empirically-set uncertainty parameters often fail to capture noise accurately.
             <b>Middle</b>: AirIMU not only denoises the IMU data but also predicts the corresponding uncertainty of the integration. Notably, its covariance propagation is differentiable, promoting efficient training.
             <b>Right</b>: Learning-based algorithms can predict velocity and covariance, but their predictions lack interpretability and generality across different data domains.
@@ -149,8 +149,9 @@
         </figure>
 
         <figure>
-          <img src="./static/images/Figure2.png" width="50%"/>
-          <figcaption class="content has-text-justified">
+          <img src="./static/images/Figure2.png" width="48%"/>
+          <img src="./static/images/FigurePGO.drawio.svg" width="48%"/>
+          <figcaption class="content">
             <b>Right</b>: We employ CNN-GRU encoder to capture IMU features $f$ from raw IMU accelerometer $a_k$ and gyroscope $w_k$.
             Subsequently, these features are decoded to obtain IMU corrections ($\sigma_{acc}$, $\sigma_{gyro}$).
             <b>Left</b>: We add the raw data with corrections, generating corrected IMU measurements ($\hat a_k$ and $\hat w_k$). The learned uncertainties $\eta$ are propagated to estimate the corresponding covariance matrix $\Sigma$.
@@ -167,12 +168,12 @@
   <div class="container is-max-desktop">
     <div class="columns">
       <div class="column">
-        <h2 class="title is-3">Results</h2>
+        <h2 class="title is-3">Experiments</h2>
         Results show that AirIMU can effectively reduce the error comparing to direct integration and existing calibration methods like Kalibr. The method is generalizable and shows effectiveness on IMUs ranging from automotive grade ($\sim$ \$3) to navigation grade (> \$50000).
 
         <figure>
-          <img src="./static/images/imus.svg" width="50%"/>
-          <figcaption class="content has-text-justified">
+          <img src="./static/images/imus.svg" width="65%"/>
+          <figcaption class="content">
             We present the comparison across five datasets' sensors in terms of IMU's price (Unit: \$) and navigation performance categories. Navigation performance is evaluated based on the gyroscope’s in-run bias stability metric (Unit:$^{\circ}$/hr).
           </figcaption>
         </figure>
@@ -181,21 +182,21 @@
 
           <p>The uncertainty model of the IMU pre-integration is pivotal when fusing the IMU measurements with other sensors, such as the GPS and camera. To assess the effectiveness of our learned uncertainty proposed in the AirIMU model, we conducted an ablation study using the PGO on EuRoC dataset.
             We utilize the GPS-PGO system we formulated in figure below, where GPS was considered as an unary constraint to the factor.</p>
-          <figure>
+          <!-- <figure>
             <img src="./static/images/FigurePGO.drawio.svg" width="50%"/>
-            <figcaption class="content has-text-justified">
+            <figcaption class="content">
               Pose graph optimization of a GPS signal with the IMU pre-integration. The state of the graph is defined as $x_{i}$ constrained by two different observations: IMU ($\Delta p$, $\Delta v$ and $\Delta r$) and GPS ($\hat p_i$). The gradient can be back-propagated through the IMU pre-integration and the covariance propagation.
             </figcaption>
-          </figure>
+          </figure> -->
         
         <figure>
           <img src="./static/images/IMUGPS-qualitative-result.png" width="100%"/>
-          <figcaption class="content has-text-justified">
+          <figcaption class="content">
             Qualitative analysis of the IMU-centric GPS PGO results. In this experiment, the GPS frequency is set to 0.1 Hz. Despite using identical IMU measurements, AirIMU with a learned covariance yields the optimal fusion results.
           </figcaption>
         </figure>
 
-        <h3 class="title is-4">EuRoC</h3>
+        <!-- <h3 class="title is-4">EuRoC</h3>
         
             <figure>
               <div class="columns">
@@ -206,12 +207,12 @@
                   <img src="./static/images/Euroc_gyro.png" width="100%"/>
                 </div>
               </div>
-              <figcaption class="content has-text-justified">
+              <figcaption class="content">
                 <b>Left</b>: IMU integration result of 10 frames on EuRoC Dataset with P-RMSE (Unit: $\mathrm{cm}$) and R-RMSE (Unit: $\deg$)
                 
                 <b>Right</b>: Gyroscope integration on EuRoC Dataset, we show the R-RMSE and the ROE (Unit: $\deg$).
               </figcaption>
-            </figure>
+            </figure> -->
 
         <h3 class="title is-4">KITTI</h3>
 
@@ -224,7 +225,7 @@
                 <img src="./static/images/KITTI-Trajectory.png" width="100%"/>
               </div>
             </div>
-            <figcaption class="content has-text-justified">
+            <figcaption class="content">
               <b>Left</b>: The ROE (Unit: $\deg$) and RTE (Unit: $\mathrm{m}$) of IMU integration over 1 second (10 frames) on test dataset. RoNIN refers to the RoNIN ResNet-50 model specifically.
               <br/><br/>
               <b>Right</b>: Trajectory 0022 in KITTI-Raw dataset estimated by <i style="color:deeppink">RoNIN</i>, <i style="color:orange">Baseline</i> and <i style="color:red">AirIMU</i>. 
@@ -237,7 +238,7 @@
 
           <figure>
             <img src="./static/images/Subtmrs.png" width="100%"/>
-            <figcaption class="content has-text-justified">
+            <figcaption class="content">
               In the qualitative analysis of Subt-MRS dataset, we select the sequence <code>factory 9</code> from UGV2 in the Urban Challenge. This sequence captures the robot navigating over an obstacle and subsequently remains stationary for a period. During the stationary period (highlighted with a black box), applying the <b>Average Bias</b> correction actually degrades the integration performance compared to using raw data. This is because the stationary period of testing sequence exhibits a different bias compared to the averaged bias derived from the calibration sequences, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period.
             </figcaption>
           </figure>
