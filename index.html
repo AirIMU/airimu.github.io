@@ -21,14 +21,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
 
-  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
-  <!-- <script src="./static/js/bulma-carousel.min.js"></script>
-  <script src="./static/js/bulma-slider.min.js"></script>
-  <script src="./static/js/index.js"></script> -->
-  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-
-
   <script>
     MathJax = {
       tex: {
@@ -82,14 +74,14 @@
               <span class="link-block">
                 <a href="https://arxiv.org/abs/2310.04874"
                    class="external-link button is-normal">
-                  <span>arXiv Paper</span>
+                  <span>arXiv</span>
                 </a>
               </span>
               <!-- Code Link. -->
               <span class="link-block">
                 <a href="https://github.com/haleqiu/AirIMU"
                    class="external-link button is-normal ">
-                  <span>GitHub Code</span>
+                  <span>GitHub</span>
                   </a>
               </span>
           </div>
@@ -103,7 +95,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
         <video autoplay controls muted loop playsinline height="100%">
-          <source src="/static/images/AirIMU_20M.mp4" type="video/mp4">
+          <source src="/static/images/alto_show.mp4" type="video/mp4">
         </video>
     </div>
   </div>
@@ -210,6 +202,20 @@
                 <b>Right</b>: Gyroscope integration on EuRoC Dataset, we show the R-RMSE and the ROE (Unit: $\deg$).
               </figcaption>
             </figure> -->
+          
+        <h3 class="title is-4">Subt-MRS</h3>
+
+          <figure>
+            <!-- <img src="./static/images/Subtmrs.png" width="100%"/> -->
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="/static/images/subt_vf.mp4" type="video/mp4">
+            </video>
+            <figcaption class="content">
+              <!-- In the qualitative analysis of Subt-MRS dataset, we select the sequence <code>factory 9</code> from UGV2 in the Urban Challenge. This sequence captures the robot navigating over an obstacle and subsequently remains stationary for a period.  -->
+              During the stationary period (highlighted with a black box), applying the <b>Average Bias</b> correction actually degrades the integration performance compared to using raw data, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period.
+              <!-- This is because the stationary period of testing sequence exhibits a different bias compared to the averaged bias derived from the calibration sequences, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period. -->
+            </figcaption>
+          </figure>
 
         <h3 class="title is-4">KITTI</h3>
 
@@ -228,17 +234,6 @@
               <!-- <b>Right</b>: Trajectory 0022 in KITTI-Raw dataset estimated by <i style="color:deeppink">RoNIN</i>, <i style="color:orange">Baseline</i> and <i style="color:red">AirIMU</i>. 
               The graph bellowed shows the accumulated velocity error (Unit: $\mathrm{m/s}$) through the entire trajectory. The AirIMU significantly alleviate the velocity error accumulation on y-axis significantly comparing to the Baseline model.
               As a result, the AirIMU maintains its accuracy after integration, while the Baseline method exhibits noticeable drift during the third turning. -->
-            </figcaption>
-          </figure>
-
-        <h3 class="title is-4">Subt-MRS</h3>
-
-          <figure>
-            <img src="./static/images/Subtmrs.png" width="100%"/>
-            <figcaption class="content">
-              <!-- In the qualitative analysis of Subt-MRS dataset, we select the sequence <code>factory 9</code> from UGV2 in the Urban Challenge. This sequence captures the robot navigating over an obstacle and subsequently remains stationary for a period.  -->
-              During the stationary period (highlighted with a black box), applying the <b>Average Bias</b> correction actually degrades the integration performance compared to using raw data, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period.
-              <!-- This is because the stationary period of testing sequence exhibits a different bias compared to the averaged bias derived from the calibration sequences, while the <b>AirIMU</b> successfully captures the offset of the IMU during the stationary period. -->
             </figcaption>
           </figure>
         

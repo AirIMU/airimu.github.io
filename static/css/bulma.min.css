@@ -1418,12 +1418,12 @@ a.box:active{
 }
 @media screen and (min-width:1024px){
     .container{
-        max-width:960px
+        max-width:80%
     }
 }
 @media screen and (max-width:1215px){
     .container.is-widescreen:not(.is-max-desktop){
-        max-width:1152px
+        max-width:80%
     }
 }
 @media screen and (max-width:1407px){
